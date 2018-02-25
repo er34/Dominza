@@ -1,0 +1,27 @@
+# Dominza.conf
+
+upstream Dominza {
+    server unix:///home/er34/djangoprojects/Dominza/Dominza.sock; # 
+}
+
+server {
+    listen      80;
+    server_name dominza.ru www.dominza.ru;
+    charset     utf-8;
+
+    client_max_body_size 75M;  
+
+    location /media  {
+        alias /home/er34/djangoprojects/Dominza/Dominza/media; 
+    }
+
+    location /static {
+        alias /home/er34/djangoprojects/Dominza/Dominza/static;  # 
+
+    }
+
+    location / {
+        uwsgi_pass  Dosaaf;
+        include     /home/er34/djangoprojects/Dominza/uwsgi_params; 
+    }
+}

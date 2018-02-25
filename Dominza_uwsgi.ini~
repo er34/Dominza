@@ -1,0 +1,13 @@
+#Dosaaf_uwsgi.ini 
+
+[uwsgi]
+chdir           = /home/er34/djangoprojects/Dosaaf
+module          = Dosaaf.wsgi
+home            = /home/er34/djangoprojects
+
+master          = true
+processes       = 10
+socket          = /home/er34/djangoprojects/Dosaaf/Dosaaf.sock
+chmod-socket    = 666
+vacuum          = true
+touch-reload    =  /home/er34/djangoprojects/Dosaaf/Dosaaf/wsgi.py
